@@ -5,7 +5,7 @@ const { DataTypes } = require("sequelize");
 const db = {};
 
 function connectModels() {
-  db.user = user(sequelize, DataTypes);
+  db.User = user(sequelize, DataTypes);
 }
 
 connectModels();
