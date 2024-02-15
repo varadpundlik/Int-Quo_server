@@ -6,11 +6,11 @@ const all = async () => {
 };
 
 const byId = async (id) => {
-  return await db.User.find({ where: { id } });
+  return await db.User.findAll({ where: { id } });
 };
 
 const byEmail = async (email) => {
-  return await db.User.find({ where: { email } });
+  return await db.User.findOne({ where: { email } });
 };
 
 module.exports = {
