@@ -31,7 +31,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  Interview.associate();
+  Interview.associate = (models) => {
+    Interview.belongsTo(models.User, {
+      foreignKey: {
+        name: "candidate_id",
+        allowNull: true,
+      },
+    });
+  };
 
   return Interview;
 };
