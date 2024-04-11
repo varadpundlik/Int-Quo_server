@@ -18,7 +18,13 @@ const auth = async (req, res, next) => {
         return res.status(401).json({ message: "Unauthorised request" });
       }
 
-      req.user = await getUserService.byId(decoded.id);
+      const user = await getUserService.byId(decoded.id);
+
+      if (!user) {
+        return res.status(401).json({ message: "Unauthorised request" });
+      }
+
+      req.user = user[0];
 
       next();
     } catch (error) {

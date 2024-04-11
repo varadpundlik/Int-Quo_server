@@ -31,11 +31,12 @@ const getInterviewById = async (req, res) => {
 const createInterview = async (req, res) => {
   try {
     const interview = { ...req.body };
+    interview.candidate_id = req.user.id;
     const result = await postInterviewService.create(interview);
     const questions = interview.questions;
     for (let i = 0; i < questions.length; i++) {
       const question = questions[i];
-      question.interviewId = result.id;
+      question.interview_id = result.id;
       await postQuestionService.create(question);
     }
     res.status(201).send(result);

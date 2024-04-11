@@ -7,7 +7,7 @@ const sequelize = new Sequelize(config.database, config.user, config.password, {
   host: config.host,
   dialect: config.dialect,
   port: config.port,
-  logging: console.log,
+  logging: false,
 });
 
 module.exports = sequelize;

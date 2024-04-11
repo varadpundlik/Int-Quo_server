@@ -7,6 +7,9 @@ const login = async (req, res) => {
   const { email, password } = req.body;
 
   const user = await getUserService.byEmail(email);
+  if(!user) {
+    return res.status(200).json({ message: "User not found" });
+  }
   const user_password = user.password;
 
   const valid = await compare(password, user_password);

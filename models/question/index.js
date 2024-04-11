@@ -31,20 +31,28 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      college: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      company: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     {
       paranoid: true,
     }
   );
 
-    Question.associate = (models) => {
-        Question.belongsTo(models.Interview, {
-            foreignKey: {
-                name: "interview_id",
-                allowNull: false,
-            },
-        });
-    }
+  Question.associate = (models) => {
+    Question.belongsTo(models.Interview, {
+      foreignKey: {
+        name: "interview_id",
+        allowNull: false,
+      },
+    });
+  };
 
   return Question;
 };
