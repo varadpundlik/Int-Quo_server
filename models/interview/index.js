@@ -38,6 +38,12 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
     });
+    Interview.hasMany(models.Question, {
+      foreignKey: {
+        name: "interview_id",
+        allowNull: false,
+      },
+    });
   };
 
   return Interview;
