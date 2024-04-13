@@ -5,9 +5,9 @@ const questionController = require('../../controllers/question/index');
 const auth = require('../../middleware/auth');
 
 router.get('/', questionController.getAllQuestion);
-router.get('/company/:id', questionController.getQuestionByCompanyId);
-router.get('/topic/:id', questionController.getQuestionByTopicId);
-router.get('/college/:id', questionController.getQuestionByCollegeId);  
+router.get('/company/:company', questionController.getQuestionByCompanyId);
+router.get('/topic/:topic', questionController.getQuestionByTopicId);
+router.get('/college/:college', questionController.getQuestionByCollegeId);  
 router.get('/:id', questionController.getQuestionById);
 
 module.exports = router;

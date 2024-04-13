@@ -21,7 +21,7 @@ const getQuestionById = async (req, res) => {
 
 const getQuestionByCompanyId = async (req, res) => {
   try {
-    const result = await getQuestionService.byCompanyId(req.params.id);
+    const result = await getQuestionService.byCompany(req.params.company);
     res.status(200).send(result);
   }
   catch (error) {
@@ -31,7 +31,7 @@ const getQuestionByCompanyId = async (req, res) => {
 
 const getQuestionByTopicId = async (req, res) => {
   try {
-    const result = await getQuestionService.byTopicId(req.params.id);
+    const result = await getQuestionService.byTopic(req.params.topic);
     res.status(200).send(result);
   }
   catch (error) {
@@ -41,7 +41,7 @@ const getQuestionByTopicId = async (req, res) => {
 
 const getQuestionByCollegeId = async (req, res) => {
   try {
-    const result = await getQuestionService.byCollegeId(req.params.id);
+    const result = await getQuestionService.byCollege(req.params.college);
     res.status(200).send(result);
   }
   catch (error) {
