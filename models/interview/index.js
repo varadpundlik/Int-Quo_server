@@ -25,6 +25,12 @@ module.exports = (sequelize, DataTypes) => {
       result: {
         type: DataTypes.ENUM("Selected", "Rejected"),
       },
+      college: {
+        type: DataTypes.STRING,
+      },
+      company: {
+        type: DataTypes.STRING,
+      },
     },
     {
       paranoid: true,

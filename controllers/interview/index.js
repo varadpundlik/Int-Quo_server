@@ -37,6 +37,8 @@ const createInterview = async (req, res) => {
     for (let i = 0; i < questions.length; i++) {
       const question = questions[i];
       question.interview_id = result.id;
+      question.college = interview.college;
+      question.company = interview.company;
       await postQuestionService.create(question);
     }
     res.status(201).send(result);
